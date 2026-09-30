@@ -5,19 +5,19 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class City extends Model
+class Testimonial extends Model
 {
     use HasFactory;
     
     protected $fillable = [
-        'image',
-        'name',
-        'slug'
+        'boarding_house_id',
+        'photo',
+        'content',
+        'rating',
     ];
+    // membuat relasi ke boardinghose
 
-    // menyatakan bisa mengambil city untuk banyak boarding hoase, one to many
-    public function boardingHouses(){
+    public function boardingHouse() {
         return $this->hasMany(BoardingHouse::class);
     }
-    
 }
