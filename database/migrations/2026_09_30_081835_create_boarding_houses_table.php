@@ -16,15 +16,16 @@ return new class extends Migration
             $table->string('name');
             $table->string('slug');
             $table->string('thumbnail');
-    
+
             // mengambil nilai yang ada di table city id
-            $table->foreignId('city_id')->constrained();
-            $table->foreignId('category_id')->constrained();
-            
+            $table->foreignId('city_id')->constrained()->cascadeOnDelete();
+            $table->foreignId('category_id')->constrained()->cascadeOnDelete();
+
             $table->text('description');
             $table->integer('price');
             $table->text('address');
-            
+
+            $table->softDeletes();
             $table->timestamps();
         });
     }
